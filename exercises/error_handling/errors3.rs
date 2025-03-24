@@ -7,11 +7,12 @@
 // Execute `rustlings hint errors3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+
 
 use std::num::ParseIntError;
 
-fn main() {
+//对main函数增加返回值 最后不能忘了ok的情况
+fn main() -> Result<(), ParseIntError> {
     let mut tokens = 100;
     let pretend_user_input = "8";
 
@@ -23,6 +24,8 @@ fn main() {
         tokens -= cost;
         println!("You now have {} tokens.", tokens);
     }
+
+    Ok(())  //隐式返回不需要分号;
 }
 
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
